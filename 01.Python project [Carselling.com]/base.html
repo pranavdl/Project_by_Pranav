@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CarSeller.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 40%;
+      }
+      
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      
+      .container {
+        padding: 2px 16px;
+      }
+      </style>
+</head>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">CarSeller</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/home">Home</a></li>
+        <li><a href="/addcar/">Add New Car</a></li>
+        <li><a href="/home">Show All Cars</a></li>
+      </ul>
+      <form class="navbar-form navbar-left" action="/action_page.php">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Model..." name="search">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+      
+    </div>
+  </nav>
+<body>
+    
+    <h1> Hello Peoples, Welcome to the Carseller.com</h1> <br>
+    <h3> You can buy here brand new cars and delivery will be at your doorstep...</h3>
+    
+     <br>
+
+
+    <form action="">
+        <!-- <div>
+            <label for="title">Sport Cars Available here...</label>
+            <input type="text" name="title" placeholder="Search Models...."
+            <br>
+            <button type="submit">Search</button>
+        </div> -->
+    </form>
+    <div class="row">
+        <div class="col-md-12">
+
+    {% for car in cars %}
+    <div class="col-md-4 card">
+      <!-- <img width="100%" height="200"src="https://www.bmw-infinitycars.in/sites/default/files/2020-10/_0004_7%20Series_3.jpg" alt="Avatar"> -->
+        
+      
+        <div class="d-flex">
+          <img width="100%" src={{ car[4]}} ><br>
+          <h4><b>{{ car[1]}}</b></h4> 
+          <p>{{ car[2]}}</p>
+          <p>Price: ${{ car[3]}} <button type="submit" class="btn btn-success">Purchase</button></p>
+          <!-- <p>{{ car[4]}}</p>  -->
+          <li>{{car[0]}}<a  href="/updatecarsrecord/{{ car[0]}}"> Edit</a>       <a href="/deleterecord/{{ car[0]}}">Delete</a></li>
+          <!-- <button type="button" class="btn btn-link">link style</button> -->
+
+      
+        </div>
+      </div>  
+    {% endfor %}
+    </div>
+ </div> 
+</div>
+</body>
+</html>
